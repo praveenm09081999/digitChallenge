@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digit Challenge</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    body {background-color: #4158D0;
+        background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+        height: 100vh;
+        width: 100vh;}
+    
+    #input-div {
+        position:absolute;
+        left: 20%;
+        top: 30%;
+        width: 60%;
+        padding: 10px;
+    }
+    
+    #input-button{
+        position: relative;
+        top: 40px;
+        left: 40px
+    }
+</style>
+</head>
+<body>
+    <div id="input-div">
+    <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Insert equation here:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+        id="inputEquation">
+    </div>
+    <div id="input-button">
+        <button type="button" class="btn btn-dark" onclick="solveEquation()">Solve</button>
+        <span id="answerDisplay"></span>
+    </div>
+   </div>
+<!-- Script tag for this work, the code is very vulnerable, I advise hackers to play with this -->
+<script>
+function solveEquation(){
+    let equation = document.getElementById("inputEquation").value
+    let eqqArr = equation.split("=").join("==")
+    let a;
+    let b;
+    let c;
+    let Notfound = true
+    for(d=1;Notfound && d<=9;d++){
+    for(c=1;Notfound && c<=9;c++){
+    for(b=1;Notfound && b<=9;b++){
+    for(a=1;Notfound && a<=9;a++){
+    if(eqqArr.indexOf("c") == -1 && a!=b && eval(eqqArr) ){
+        Notfound = false;
+        document.getElementById("answerDisplay").innerText = "a = " + a + " ;b = " + b
+        break
+    } else if(eqqArr.indexOf("d") == -1 && eqqArr.indexOf("c") > -1 && a!=b && a!= c && b!=c && eval(eqqArr)){
+        Notfound = false;
+        document.getElementById("answerDisplay").innerText = "a = " + a + " ;b = " + b + " ;c=" + c;
+        break
+    }else if(eqqArr.indexOf("d") > -1 && a!=b && a!= c && b!=c && a!=d && b!=d && c!=d && eval(eqqArr) ){
+        Notfound = false;
+        document.getElementById("answerDisplay").innerText = "a = " + a + " ;b = " + b + " ;c=" + c + " ;d=" + d;
+        break
+    }
+    }
+    }
+    }
+    }
+    if(Notfound) document.getElementById("answerDisplay").innerText = "No Answer!";
+    return 0
+}
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
