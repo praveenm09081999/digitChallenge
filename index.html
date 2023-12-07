@@ -24,6 +24,14 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
         top: 40px;
         left: 40px
     }
+    #cross {
+        position: relative;
+        text-align:center;
+        width:min(5vh,5vw);
+        margin: 0 auto;
+        line-height: min(5vh,5vw);
+        border: min(0.1vh,0.1vw) solid black;
+    }
 </style>
 </head>
 <body>
@@ -33,7 +41,7 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
             <span class="input-group-text" id="inputGroup-sizing-lg">Insert equation here:</span>
         </div>
         <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
-        id="inputEquation">
+        id="inputEquation"> <div id="cross" onclick="document.getElementById('inputEquation').value = ''">X</div>
     </div>
     <div id="input-button">
         <button type="button" class="btn btn-dark" onclick="solveEquation()">Solve</button>
