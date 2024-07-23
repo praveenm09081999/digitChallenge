@@ -1,4 +1,4 @@
-# Unique Numbers Solver
+# Digit Challenge
 
 This repository contains a webpage for solving equations with unique numbers that satisfy the equation. It ensures that the numbers in the solution are unique and adhere to specified constraints.
 
